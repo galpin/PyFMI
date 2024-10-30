@@ -1574,7 +1574,7 @@ class TestResultCSVTextual:
 
     def test_csv_options_cs2(self):
         simple_alias = Dummy_FMUModelCS2([("x", "y")], os.path.join(file_path, "files", "FMUs", "XML", "CS2.0", "NegatedAlias.fmu"), _connect_dll=False)
-        self._run_negated_alias(self, simple_alias)
+        _run_negated_alias(self, simple_alias)
 
 class TestResultDymolaBinary:
 
