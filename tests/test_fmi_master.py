@@ -167,11 +167,10 @@ class Test_Master:
         opts = {"result_handling":"memory"}
         self._basic_simulation(opts)
 
-    @testattr(stddist = True)
     def test_basic_simulation_max_result_size(self):
         opts = {"result_max_size":10000}
 
-        with nose.tools.assert_raises(ResultSizeError):
+        with pytest.raises(ResultSizeError):
             self._basic_simulation(opts)
     
     def test_basic_simulation_mat_file_naming(self):

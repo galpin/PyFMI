@@ -1681,9 +1681,8 @@ class TestResultDymolaBinary:
         assert data_to_return, "Something went wrong, no test data was generated"
         return data_to_return
 
-    @testattr(stddist = True)
     def test_get_variables_data_values0(self):
-        """ Verifing values from get_variables_data. """
+        """ Verifying values from get_variables_data. """
         vars_to_test = ['J4.phi']
         test_data_sets = self._test_get_variables_data(False, 3, None, vars_to_test, lambda x: None, "TestFile00.mat")
 
@@ -1696,9 +1695,8 @@ class TestResultDymolaBinary:
         for index, test_data in test_data_sets.items():
             np.testing.assert_array_almost_equal(test_data[0], reference_data[index])
 
-    @testattr(stddist = True)
     def test_get_variables_data_values1(self):
-        """ Verifing values from get_variables_data, with dynamic_diagnostics = True. """
+        """ Verifying values from get_variables_data, with dynamic_diagnostics = True. """
         vars_to_test = ['time', 'J4.phi', '@Diagnostics.step_time', '@Diagnostics.nbr_steps']
         test_data_sets = self._test_get_variables_data(True, 5, 3, vars_to_test, lambda x: None, "TestFile01.mat")
 
@@ -1715,9 +1713,8 @@ class TestResultDymolaBinary:
         for index, test_data in test_data_sets.items():
             np.testing.assert_array_almost_equal(test_data[1], reference_data[index])
 
-    @testattr(stddist = True)
     def test_get_variables_data_values2(self):
-        """ Verifing values from get_variables_data, retrieving partial trajectories. """
+        """ Verifying values from get_variables_data, retrieving partial trajectories. """
         vars_to_test = ['time', 'J4.phi']
         test_data_sets = self._test_get_variables_data(False, 5, None, vars_to_test, lambda x: x + 1, "TestFile02.mat")
 
@@ -1733,7 +1730,7 @@ class TestResultDymolaBinary:
             np.testing.assert_array_almost_equal(test_data[1], reference_data[index])
 
     def test_get_variables_data_values3(self):
-        """ Verifing values from get_variables_data, and only asking for diagnostic variables. """
+        """ Verifying values from get_variables_data, and only asking for diagnostic variables. """
         vars_to_test = ['@Diagnostics.step_time', '@Diagnostics.nbr_steps']
         test_data_sets = self._test_get_variables_data(True, 5, 1, vars_to_test, lambda x: None, "TestFile03.mat")
 
@@ -1759,7 +1756,7 @@ class TestResultDymolaBinary:
             np.testing.assert_array_almost_equal(test_data[1], reference_data['@Diagnostics.nbr_steps'][index])
 
     def test_get_variables_data_values4(self):
-        """ Verifing values from get_variables_data, partial trajectories and checking both time and diagnostic data."""
+        """ Verifying values from get_variables_data, partial trajectories and checking both time and diagnostic data."""
         vars_to_test = ['time', '@Diagnostics.nbr_steps']
         test_data_sets = self._test_get_variables_data(True, 5, 1, vars_to_test, lambda x: x + 2, "TestFile04.mat")
 
