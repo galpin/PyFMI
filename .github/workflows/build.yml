@@ -63,6 +63,10 @@ jobs:
     #    rm src/pyfmi/__init__.py
     #    cp -rv src/pyfmi/tests/files tests
     #    python3 -m nose --verbose tests/*.py
+    - name: Auditwheel
+      run: |
+        pip install auditwheel
+        auditwheel repair dist/*.whl
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
