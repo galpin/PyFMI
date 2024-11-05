@@ -66,7 +66,7 @@ jobs:
     - name: Auditwheel
       run: |
         pip install auditwheel
-        auditwheel repair dist/*.whl
+        auditwheel repair dist/*.whl --plat manylinux_2_35_x86_64
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
